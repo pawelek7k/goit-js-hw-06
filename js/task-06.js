@@ -4,11 +4,6 @@ const inputHtml = document.getElementById("validation-input");
 inputHtml.addEventListener("blur", () => {
     const inputValueLength = inputHtml.value.length;
 
-    if (inputValueLength < parseInt(dataLengthHtml.getAttribute("data-length"))) {
-        inputHtml.classList.remove("valid");
-        inputHtml.classList.add("invalid");
-    } else {
-        inputHtml.classList.remove("invalid");
-        inputHtml.classList.add("valid");
-    }
+    inputHtml.classList.toggle("invalid", inputValueLength !== 6);
+    inputHtml.classList.toggle("valid", inputValueLength === 6);
 });

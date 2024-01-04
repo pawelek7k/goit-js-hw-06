@@ -8,8 +8,14 @@ const controlsDivHtml = document.getElementById("controls");
 const createBtnHtml = controlsDivHtml.querySelector("button[data-create]");
 const destroyBtnHtml = controlsDivHtml.querySelector("button[data-destroy]");
 const boxesDivHtml = document.getElementById("boxes");
+const inputValueHtml = document.querySelector("input[type='number']")
 
 destroyBtnHtml.addEventListener("click", destroyBoxes);
+
+destroyBtnHtml.addEventListener("click", () => {
+destroyBoxes();
+inputValueHtml.value = ''
+})
 
 function destroyBoxes() {
   boxesDivHtml.innerHTML = "";
@@ -34,4 +40,3 @@ function createBoxes(amount) {
 
   boxesDivHtml.appendChild(fragmentHtml);
 }
-

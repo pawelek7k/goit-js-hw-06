@@ -9,9 +9,6 @@ const ingredients = [
 
 const ingredientsUlHtml = document.getElementById("ingredients");
 
-ingredients.forEach((ingredient) => {
-  const ingredientsLiHtml = document.createElement("li");
-    ingredientsLiHtml.textContent = ingredient;
-    ingredientsLiHtml.classList.add("list");
-    ingredientsUlHtml.appendChild(ingredientsLiHtml);
-})
+const ingredientsLiHtml = ingredients.map((ingredient) => `<li class="item">${ingredient}</li>`).join("");
+
+ingredientsUlHtml.innerHTML = ingredientsLiHtml
